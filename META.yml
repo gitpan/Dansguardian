@@ -1,5 +1,5 @@
 name:         dansguardian
-version:      0.2
+version:      0.3
 version_from: lib/dansguardian.pm
 installdirs:  site
 license:      perl

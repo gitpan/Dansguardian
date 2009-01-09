@@ -3,7 +3,7 @@ use warnings;
 use strict;
 use Carp;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 NAME
 
@@ -64,6 +64,8 @@ Dansguardian perl module provides some basic methods for administer control file
 
 The constructor will create an object. It accepts a list of key => value pairs:
 
+=over 3
+
 =item dir => 'dansguardian/config/directory'
 
 If you don't set up a config directory for dansguardian the module will set up default value: /etc/dansguardian
@@ -72,6 +74,7 @@ If you don't set up a config directory for dansguardian the module will set up d
 
 Same that dir hash, and the default value is: /etc/dansguardian/lists
 
+=back
 
 =cut
 
@@ -86,7 +89,6 @@ sub new {
 
 
 =pod
-
 
 =head2 $dg->group([$group_dir]);
 
@@ -122,6 +124,8 @@ sub dir {
 
 set method must have hash attributes. So, it accepts a list of key => value pairs:
 
+=over 3
+
 =item file => 'FILE'
 
 The FILE value is the file (locate inside current group dir) where you wish add information. For example: If you want add site to exception.
@@ -135,6 +139,8 @@ This line will add $site to /etc/dansguardian/lists/exceptioniplist assuming tha
 The 'add' value is the information to add in dansguardian control file. For example: If you need add one IP for bannediplist control file, then assign 'IP' value for add hash key.
 
 =item comment => 'OPTIONAL COMMENT'
+
+=back
 
 This key is optional but very usefull for reading control files. It add comment at final line, after the 'add' value. 
 
@@ -154,6 +160,8 @@ sub set ($;@) {
 
 remove method must have one hash attribute with keys: 
 
+=over 3
+
 =item file => 'FILE'
 
 The FILE value is the file (locate inside current group dir) where you wish remove information.
@@ -161,6 +169,8 @@ The FILE value is the file (locate inside current group dir) where you wish remo
 =item line => 'LINE/IP/SITE/whatever'
 
 The value of hash key line is the information for remove in dansguardian control file. For example: For remove IP address from bannediplist control file you must add 'IP' like value of line hash key.
+
+=back
 
 =head3 Example
 
