@@ -1,7 +1,10 @@
 Revision history for dansguardian Perl Module.
 
+0.04  14 Jan 2009
+   - Use Tie::File to delete lines in file
+
 0.03  8 Jan 2009
-   -  Adapt pod to pod2man
+   -  Adapted pod to pod2man
 
 0.02  8 Jan 2009
    -  Improve documentation files and README

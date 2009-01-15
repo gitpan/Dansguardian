@@ -2,8 +2,9 @@ package dansguardian;
 use warnings;
 use strict;
 use Carp;
+use Tie::File;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 =head1 NAME
 
@@ -237,15 +238,10 @@ sub agregar {
 }
 
 sub rm {
-	my($file, $line) = @_;
-	open(FILE, "$file") || croak "Can't open $file: $!";
-	my @contents = <FILE>;
-	close(FILE);
-	@contents = grep { !/^$line/i } @contents;
-	open(FILE, ">$file") || croak "Can't open $file: $!";
-	print FILE @contents;
-	close(FILE);
-	return 1;
+	my ($file, $line) = @_;
+	tie my @content, 'Tie::File', $file or die "Can't open $file: $!";
+	@content = grep { !/^$line/i } @content;
+	untie @content;
 }
 
 1;
