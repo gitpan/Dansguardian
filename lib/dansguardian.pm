@@ -1,10 +1,10 @@
-package dansguardian;
+package Dansguardian;
 use warnings;
 use strict;
 use Carp;
 use Tie::File;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 =head1 NAME
 
@@ -12,11 +12,11 @@ Dansguardian - Simple module for administer dansguardian's control files.
 
 =head1 SYNOPSIS
 
-  use dansguardian;
+  use Dansguardian;
 
   # Make the objet $dg using the contructor new()
   
-  my $dg = dansguardian->new(dir => '/etc/dansguardian', group_dir => '/etc/dansguardian/lists');
+  my $dg = Dansguardian->new(dir => '/etc/dansguardian', group_dir => '/etc/dansguardian/lists');
 
   # Save IP's banned in array
   
@@ -61,7 +61,7 @@ Dansguardian perl module provides some basic methods for administer control file
 
 =head2 new (constructor)
 
-  $dg = dansguardian->new([%attributes])
+  $dg = Dansguardian->new([%attributes])
 
 The constructor will create an object. It accepts a list of key => value pairs:
 
